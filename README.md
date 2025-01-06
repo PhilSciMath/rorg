@@ -6,4 +6,4 @@ This is meant to work with Retroarch, since it uses ``.m3u`` files to change dis
 - The script has to be in the same directory as the roms you want to extract.
 - For now it only works within Linux, run it from a terminal ``python rorg_v1.0.py``.
 - I did it for myself in order to automate the boring task of extracting each rom and typing into ``.m3u`` files manually. It will create two directories, ``isos`` and ``m3u``. You're supposed to move them to where it makes sense for you and then use Retroarch to scan the ``m3u`` directory.
-
+- It depends on 7z, so make sure to install it first.
