@@ -19,11 +19,11 @@
 # these it is highly advisable to move them to another place before running the
 # script, or else errors will occur.
 #
-# Note 4: I'm not a programer, so this script can be improved by anyone with more 
-# skill. I will still make changes now and then as I learn more Python. If you're 
-# going to use it, be sure your compressed files aren't corrupted bucause this 
-# script as of now won't check what happens when extraction fails. To be safe
-# say 'no' when prompted to remove your files.
+# Note 4: I'm not a programer, so this script can be improved by anyone with
+# more skill. I will still make changes now and then as I learn more Python.
+# If you're going to use it, be sure your compressed files aren't corrupted
+# bucause this script as of now won't check what happens when extraction fails.
+# To be safe say 'no' when prompted to remove your files.
 #
 
 import glob
@@ -41,10 +41,12 @@ archives = glob.glob('*.7z') + glob.glob('*.rar') + glob.glob('*.zip')
 titles = []
 suffixes = ['.7z', '.rar', '.zip']
 
-def suffix_remover(name, suffixes):    
+
+def suffix_remover(name, suffixes):
     for suffix in suffixes:
         if suffix in name:
-            return name.removesuffix(suffix)   
+            return name.removesuffix(suffix)
+
 
 for archive in archives:
     end = 0
@@ -53,9 +55,9 @@ for archive in archives:
         titles.append(archive[:end])
     else:
         titles.append(suffix_remover(archive, suffixes))
-	
+
 # Removing duplicates and creating directories.
-titles = set(titles) 
+titles = set(titles)
 for title in titles:
     os.makedirs(title, exist_ok=True)
 
@@ -67,7 +69,7 @@ for archive in archives:
 
 # going into each directory, extracting and deleting each archive and subdirs
 for title in titles:
-    os.system(f'cd "{title}"; 7z x "*" -y; {remove} mv */* . ;' + 
+    os.system(f'cd "{title}"; 7z x "*" -y; {remove} mv */* . ;' +
               ' rm -rf */ *.url')
 
 # Creating dirs and moving game dirs into isos
