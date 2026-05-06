@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+# This is rorg_v1.0, and "rorg" stands for "roms organizer".
 # The purpose of this script is to extract a bunch of zipped game roms
 # to a directory called "isos" and create .m3u files inside a directory called
 # "m3u", both in the same level. It saves you from the tedious task of
