@@ -12,12 +12,15 @@
 # Note 1: this script must be in the same directory as the
 # zipped roms you have (they can be .7z, .zip or .rar)
 #
-# Note 2: the script depends on Python and 7z
+# Note 2: the script depends on Python and 7z, so install them if not already
 #
-# Note 3: it works fine with standard game roms. It DOES NOT WORK with
-# most hacked and fan translated from Japanese roms. So if you have any of
+# Note 3: it works fine with standard game dumps. It DOES NOT WORK with
+# most hacked and fan translated dumps. So if you have any of
 # these it is highly advisable to move them to another place before running the
-# script, or else errors will occur.
+# script, or else errors will occur. The problem is this: default dumps have
+# only .cue .bin files inside a .7z or .rar archive and if, for some reason,
+# your archive contains a subdirectory inside, the script will not process it.
+# There is no way I can know previously how many subdirs a hacked dump has.
 #
 # Note 4: I'm not a programer, so this script can be improved by anyone with
 # more skill. I will still make changes now and then as I learn more Python.
@@ -25,6 +28,7 @@
 # bucause this script as of now won't check what happens when extraction fails.
 # To be safe say 'no' when prompted to remove your files.
 #
+# Note 5: this script works with .bin .cue dumps only, no .chd
 
 import glob
 import os
@@ -35,6 +39,9 @@ remove = 'rm *.7z *.zip *.rar;' if option[0] == 'y' else ' '
 
 # Creating a list of all the compressed files
 archives = glob.glob('*.7z') + glob.glob('*.rar') + glob.glob('*.zip')
+if not archives:
+    print("No compressed files found. Are you in the right directory?")
+    exit()
 
 # We want game titles that look like "Game Name (USA)", not
 # "Game Name (USA) (Disc 1).7z".
