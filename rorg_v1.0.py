@@ -25,7 +25,7 @@
 # Note 4: I'm not a programer, so this script can be improved by anyone with
 # more skill. I will still make changes now and then as I learn more Python.
 # If you're going to use it, be sure your compressed files aren't corrupted
-# bucause this script as of now won't check what happens when extraction fails.
+# because this script as of now won't check what happens when extraction fails.
 # To be safe say 'no' when prompted to remove your files.
 #
 # Note 5: this script works with .bin .cue dumps only, no .chd
