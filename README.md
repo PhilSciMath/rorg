@@ -1,4 +1,4 @@
-# RORG (Roms Organizer)
+# RORG (ROMs Organizer)
 This is a Python script for Linux whose purpose is to extract game roms compressed with 7z, zip or rar to a directory called ``isos``. It then creates ``.m3u`` files and put them inside a ``m3u`` directory. Inside ``isos`` each game will have its own directory and games with multiple discs will have all their files inside the same directory. <br>
 This is meant to work with Retroarch, since it uses ``.m3u`` files to change discs when a game has multiple discs. It also will only work with cores that support reading from ``.m3u`` files, like Swanstation.
 - Do not use it with patched roms like hacks or fan translations.
