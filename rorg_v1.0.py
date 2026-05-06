@@ -32,6 +32,8 @@
 
 import glob
 import os
+import re
+
 
 # choosing to remove or keep the compressed archives
 option = input('Remove compressed files?\n[y,n] >> ').lower()
@@ -71,7 +73,7 @@ for title in titles:
 # moving each compressed rom to a directory with same name
 for archive in archives:
     for title in titles:
-        if title in archive:
+        if re.search(re.escape(title) + r'(\s|\(|\.)', archive):
             os.system(f'mv "{archive}" "{title}"')
 
 # going into each directory, extracting and deleting each archive and subdirs
@@ -95,5 +97,5 @@ os.remove('list.txt')
 # this will write the .m3u files
 for name in cue_files:
     for title in titles:
-        if title in name:
+        if re.search(re.escape(title) + r'(\s|\(|\.)', name):
             os.system(f'echo "../{name}" >> "m3u/{title}.m3u"')
